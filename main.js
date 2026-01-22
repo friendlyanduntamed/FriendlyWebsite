@@ -480,6 +480,69 @@ function updateFooterYear() {
 }
 
 // ========================================
+// IMAGE PROTECTION
+// ========================================
+function initImageProtection() {
+    const copyrightMessage = '© Friendly and Untamed by Saumya Gupta. All images are protected by copyright.';
+
+    // Disable right-click context menu
+    document.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+        alert(copyrightMessage);
+        return false;
+    });
+
+    // Disable keyboard shortcuts for saving
+    document.addEventListener('keydown', (e) => {
+        // Ctrl+S, Ctrl+Shift+S, Ctrl+P (print), Ctrl+Shift+I (dev tools), F12
+        if (
+            (e.ctrlKey && e.key === 's') ||
+            (e.ctrlKey && e.shiftKey && e.key === 'S') ||
+            (e.ctrlKey && e.key === 'p') ||
+            (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+            e.key === 'F12'
+        ) {
+            e.preventDefault();
+            alert(copyrightMessage);
+            return false;
+        }
+
+        // Cmd+S for Mac
+        if (e.metaKey && e.key === 's') {
+            e.preventDefault();
+            alert(copyrightMessage);
+            return false;
+        }
+    });
+
+    // Disable image dragging
+    document.querySelectorAll('img').forEach(img => {
+        img.setAttribute('draggable', 'false');
+        img.addEventListener('dragstart', (e) => e.preventDefault());
+    });
+
+    // Also apply to dynamically loaded images
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            mutation.addedNodes.forEach((node) => {
+                if (node.nodeName === 'IMG') {
+                    node.setAttribute('draggable', 'false');
+                    node.addEventListener('dragstart', (e) => e.preventDefault());
+                }
+                if (node.querySelectorAll) {
+                    node.querySelectorAll('img').forEach(img => {
+                        img.setAttribute('draggable', 'false');
+                        img.addEventListener('dragstart', (e) => e.preventDefault());
+                    });
+                }
+            });
+        });
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
+}
+
+// ========================================
 // INITIALIZE
 // ========================================
 document.addEventListener('DOMContentLoaded', () => {
@@ -489,4 +552,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initNavbarScroll();
     initGallery();
     updateFooterYear();
+    initImageProtection();
 });
