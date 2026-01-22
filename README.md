@@ -1,4 +1,4 @@
-# Forest Tales - Wildlife Photography Portfolio
+# Wildlife Photography Portfolio
 
 A magical, forest-themed personal website for a wildlife photographer, featuring immersive parallax effects, floating particles, and a narrative-driven design.
 
@@ -197,4 +197,4 @@ MIT License - feel free to use this for your own projects.
 
 ---
 
-*Crafted with 🌲 by Forest Tales*
+*Crafted with 🌲 by Saumya Gupta*
