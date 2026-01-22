@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Get in touch - Wildlife photography inquiries, prints, and collaborations.">
+    <title>Contact | Friendly and Untamed</title>
+
+    <!-- Favicon -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐅</text></svg>">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <script type="module" src="/src/scripts/main.js"></script>
+</head>
+
+<body>
+    <a href="#contact-page" class="skip-link">Skip to main content</a>
+
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="navbar__container">
+            <a href="/" class="navbar__logo">Friendly & Untamed</a>
+            <ul class="navbar__menu">
+                <li><a href="/" class="navbar__link">Home</a></li>
+                <li><a href="/about.html" class="navbar__link">About</a></li>
+                <li><a href="/portfolio.html" class="navbar__link">Gallery</a></li>
+                <li><a href="/blog.html" class="navbar__link">Blog</a></li>
+                <li><a href="/contact.html" class="navbar__link navbar__link--active">Contact</a></li>
+                <li><a href="/shop.html" class="navbar__link">Shop</a></li>
+            </ul>
+            <button class="navbar__toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span class="navbar__toggle-line"></span>
+                <span class="navbar__toggle-line"></span>
+                <span class="navbar__toggle-line"></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="navbar__mobile-menu" role="dialog" aria-label="Mobile navigation">
+        <a href="/" class="navbar__mobile-link">Home</a>
+        <a href="/about.html" class="navbar__mobile-link">About</a>
+        <a href="/portfolio.html" class="navbar__mobile-link">Gallery</a>
+        <a href="/blog.html" class="navbar__mobile-link">Blog</a>
+        <a href="/contact.html" class="navbar__mobile-link">Contact</a>
+        <a href="/shop.html" class="navbar__mobile-link">Shop</a>
+    </div>
+
+    <main id="contact-page">
+        <div class="contact-container contact-container--centered">
+
+            <!-- Header -->
+            <header class="contact-header">
+                <h1 class="contact-header__title">Get in Touch!</h1>
+                <p class="contact-header__subtitle">For inquiries, collaborations, or just to share a story from the
+                    wild.</p>
+            </header>
+
+            <!-- Contact Form -->
+            <form class="contact-form" id="contactForm" novalidate>
+
+                <div class="form-group">
+                    <label for="name" class="form-label">Name <span class="form-required">*</span></label>
+                    <input type="text" id="name" name="name" class="form-input" required minlength="2"
+                        pattern="^[a-zA-Z\s'-]{2,50}$" placeholder="Your name">
+                    <span class="form-error" id="nameError">Please enter a valid name (2-50 characters)</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="form-label">Email <span class="form-required">*</span></label>
+                    <input type="email" id="email" name="email" class="form-input" required
+                        pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$" placeholder="your@email.com">
+                    <span class="form-error" id="emailError">Please enter a valid email address</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject" class="form-label">Subject</label>
+                    <input type="text" id="subject" name="subject" class="form-input" maxlength="100"
+                        placeholder="What's this about?">
+                </div>
+
+                <div class="form-group">
+                    <label for="message" class="form-label">Message <span class="form-required">*</span></label>
+                    <textarea id="message" name="message" class="form-textarea" required minlength="10" maxlength="2000"
+                        rows="6" placeholder="Your message..."></textarea>
+                    <span class="form-error" id="messageError">Please enter a message (at least 10 characters)</span>
+                </div>
+
+                <button type="submit" class="form-submit">Send Message</button>
+
+                <p class="form-note">Your message will be sent directly to my inbox.</p>
+
+            </form>
+
+        </div>
+    </main>
+
+    <footer class="footer footer--minimal">
+        <div class="container">
+            <div class="footer__content">
+                <p class="footer__copyright">&copy; <span class="footer__year">2026</span> Friendly & Untamed by Saumya
+                    Gupta</p>
+                <a href="https://instagram.com/friendlyanduntamed" class="footer__social-link" target="_blank"
+                    rel="noopener" aria-label="Instagram">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Contact Form Validation
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('contactForm');
+
+            if (!form) return;
+
+            // Regex patterns
+            const patterns = {
+                name: /^[a-zA-Z\s'-]{2,50}$/,
+                email: /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/,
+                message: /^.{10,2000}$/
+            };
+
+            // Validate single field
+            function validateField(input) {
+                const fieldName = input.name;
+                const value = input.value.trim();
+                const errorElement = document.getElementById(fieldName + 'Error');
+                let isValid = true;
+
+                // Check required
+                if (input.required && !value) {
+                    isValid = false;
+                }
+
+                // Check pattern
+                if (value && patterns[fieldName] && !patterns[fieldName].test(value)) {
+                    isValid = false;
+                }
+
+                // Update UI
+                if (errorElement) {
+                    if (isValid) {
+                        input.classList.remove('form-input--error');
+                        errorElement.style.display = 'none';
+                    } else {
+                        input.classList.add('form-input--error');
+                        errorElement.style.display = 'block';
+                    }
+                }
+
+                return isValid;
+            }
+
+            // Real-time validation on blur
+            form.querySelectorAll('input, textarea').forEach(function (input) {
+                input.addEventListener('blur', function () {
+                    validateField(this);
+                });
+
+                // Remove error on input
+                input.addEventListener('input', function () {
+                    if (this.classList.contains('form-input--error')) {
+                        validateField(this);
+                    }
+                });
+            });
+
+            // Form submission
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                let isFormValid = true;
+
+                // Validate all required fields
+                form.querySelectorAll('input[required], textarea[required]').forEach(function (input) {
+                    if (!validateField(input)) {
+                        isFormValid = false;
+                    }
+                });
+
+                if (isFormValid) {
+                    // Build mailto link with form data
+                    const name = document.getElementById('name').value.trim();
+                    const email = document.getElementById('email').value.trim();
+                    const subject = document.getElementById('subject').value.trim() || 'Contact from Website';
+                    const message = document.getElementById('message').value.trim();
+
+                    const mailtoBody = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0A${message}`;
+                    const mailtoLink = `mailto:friendlyanduntamed@gmail.com?subject=${encodeURIComponent(subject)}&body=${mailtoBody}`;
+
+                    window.location.href = mailtoLink;
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
